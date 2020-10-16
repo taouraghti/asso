@@ -28,6 +28,11 @@ h1 {
     color: #d84747;
 }
 
+.is-inv
+{
+    border-color: #dc3545;
+}
+
 
 /*   End Main Rules*/
 
@@ -100,6 +105,11 @@ h1 {
 .home-stats .st-pending
 {
     background-color: #d63031;
+}
+
+.home-stats .st-post
+{
+    background-color: #00b894;
 }
 
 .home-stats .stat span

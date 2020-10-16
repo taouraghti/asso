@@ -16,6 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth'])->group(function () {
 
+    Route::get('/', 'HomeController@home')->name('home');
 
+    });
+
+Route::middleware(['guest'])->group(function () {
+
+    Route::get('/', 'HomeController@index')->name('welcome');
+    Route::post('/logged', 'LoginController@logged')->name('user.logged');
+    Route::post('/registred', 'RegisterController@register')->name('user.register');
+
+});
