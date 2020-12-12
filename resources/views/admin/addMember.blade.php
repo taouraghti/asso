@@ -20,7 +20,7 @@
         <div class="form-group row">
             <label class="col-sm-2 control-label">Username</label>
             <div class="col-sm-10 col-md-6">
-                <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" placeholder="Username To Login Shop" required = "required">
+                <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" placeholder="Username To Login" required = "required">
                 @error('username')
                     <div class="invalid-feedback">
                         {{ $errors->first('username') }}
@@ -50,8 +50,13 @@
         <div class="form-group row">
             <label class="col-sm-2 control-label">Confirm Password</label>
             <div class="col-sm-10 col-md-6">
-                <input type="password" class="password form-control" name="password_confirmation" autocomplete="new-password" placeholder="Password Confirmation" required = "required">
+                <input type="password" class="password form-control @error('confirm_password') is-invalid @enderror" name="password_confirmation" autocomplete="new-password" placeholder="Password Confirmation" required = "required">
                 <i class="show-pass fa fa-eye fa-1x"></i>
+                @error('confirm_password')
+                    <div class=" invalid-feedback">
+                        {{ $errors->first('confirm_password') }}
+                    </div>
+                @enderror
             </div>
         </div>
         <!--  End Field Confirm Password  -->
@@ -69,6 +74,16 @@
             </div>
         </div>
         <!--  End Field Email  -->
+
+        <div class="form-group row">
+            <label class="col-sm-2 control-label">Type</label>
+            <div class="col-sm-10 col-md-6">
+                <select class="form-control" name="type">
+                    <option value="0">Etudiant</option>
+                    <option value="1">Professeur</option>
+                </select>
+            </div>
+        </div>
 
         <!--  Start Field Full name  -->
         <div class="form-group row">

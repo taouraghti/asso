@@ -28,14 +28,14 @@ class MemberController extends Controller
                 'fullname'  => $req->fullname,
                 'password'  => bcrypt($req->password),
                 'email'     => $req->email,
-                'activate'    => 1,
+                'type'      => $req->type,
+                'activate'  => 1,
                 'avatar'    => $img
             ]);
             return view('admin.template',['msg' => "member added succesfully"]);
 
         }catch(\Exception $ex)
         {
-            //return 'non';
         }
     }
 
@@ -73,10 +73,8 @@ class MemberController extends Controller
                         'avatar'    => $img
               ]);
             return view('admin.template',['msg' => "member edited succesfully"]);
-              //return $req->avatar;
         }catch(\Exception $ex)
         {
-
         }
     }
 

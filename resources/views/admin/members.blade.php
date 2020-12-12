@@ -17,6 +17,7 @@
                 <tr style="font-weight: bold; color: #fff; background-color: rgba(33,37,41,.9);">
                     <td>#ID</td>
                     <td>Avatar</td>
+                    <td>type</td>
                     <td>Username</td>
                     <td>Email</td>
                     <td>Full Name</td>
@@ -27,6 +28,11 @@
                         <tr>
                         <td> {{$user->id}} </td>
                         <td> <img src="{{ asset("images/avatars/$user->avatar") }}" style="width:50px;height:50px;"></td>
+                        @if($user->type == 0)
+                            <td> Student </td>
+                        @else
+                            <td> Professor </td>
+                        @endif
                         <td> {{$user->username}} </td>
                         <td> {{$user->email}} </td>
                         <td> {{$user->fullname}}</td>

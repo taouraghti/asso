@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -24,5 +23,14 @@ class DashboardController extends Controller
     {
         $users = DB::table('users')->where('activate', 0)->get();
         return view('admin.members', ['users' => $users]);
+    }
+
+    public function post()
+    {
+        $posts = DB::table('posts')
+        ->join('users', 'users.id', '=', 'posts.user_id')
+        ->select('posts.*', 'users.username')
+        ->orderBy('posts.created_at','desc')->get();
+        return view('admin.posts', ['posts' => $posts]);
     }
 }

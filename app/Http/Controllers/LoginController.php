@@ -32,10 +32,9 @@ class LoginController extends Controller
     {
         if(Auth::attempt(['username' => $req->input('username'), 'password' => $req->input('password')]))
         {
-            $users = DB::table('users')->where('username', $req->input('username'))->get();
-            //return redirect()->route('home',[$users]);
-            //return view('welcome', ['users' => $users]);
-            return "oui";
+            $user = DB::table('users')->where('username', $req->input('username'))->first();
+            $req->session()->put('data',$user);
+            return view('welcome');
         }
         else
             return redirect()->back()->with(['err' => 'Username or password incorrect']);

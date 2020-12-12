@@ -18,7 +18,7 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/', 'HomeController@home')->name('home');
+   // Route::get('/', 'LoginController@logged')->name('home');
 
     });
 

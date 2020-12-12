@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\User;
 
 class UserRequest extends FormRequest
 {
@@ -21,7 +22,7 @@ class UserRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+   public function rules()
     {
         return [
             'fullname' => 'required|string|max:100|min:3',
@@ -37,7 +38,6 @@ class UserRequest extends FormRequest
                 'regex:/[0-9]/',      // must contain at least one digit
                 'regex:/[@$!%*#?&]/', // must contain a special character
             ],
-            //'password' => 'required|string|required_with:password_confirmation|max:100|min:8|confirmed',
             'email'    => 'required|email|unique:users,email',
             'avatar'   => 'sometimes|nullable|mimes:jpeg,png,jpg'
         ];
@@ -57,4 +57,23 @@ class UserRequest extends FormRequest
             'avatar.mimes'      => 'Extension must be jpg or png',
         ];
     }
+
+    /*public function rules()
+    {
+        return [
+            'fullname' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            //'password' => 'required|string|required_with:password_confirmation|max:100|min:8|confirmed',
+            'email'    => 'required',
+            'avatar'   => 'sometimes|nullable|mimes:jpeg,png,jpg'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'required' => 'Username is required',
+        ];
+    }*/
 }

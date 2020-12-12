@@ -30,7 +30,6 @@ class UpdateRequest extends FormRequest
             'newpassword' => [
                 'sometimes',
                 'nullable',
-                'required_with:password_confirmation',
                 'string',
                 'max:100',
                 'min:8',             // must be at least 8 characters in length

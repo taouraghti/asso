@@ -33,12 +33,12 @@
         </div>
 
         <div class="col-lg-4 col-md-6">
-            <a href="#">
+            <a href="{{route('admin.posts')}}">
                 <div class="stat st-post">
                     <i class="fas fa-clone"></i>
                     <div class="info">
                         Total Posts
-                        <span>0</span>
+                        <span>1</span>
                     </div>
                 </div>
             </a>
@@ -77,9 +77,8 @@
         </div>
         <div class="col-sm-6">
             <div class="card">
-            <?php $latestItems = 4;?>
                 <div class="card-header">
-                    <i class="fas fa-tag"></i> Latest <?php echo $latestItems;?> Registred Items
+                    <i class="fas fa-tag"></i> Latest 6 Posts
                     <span class="toggle-info float-right">
                         <i class="fas fa-minus"></i>
                     </span>
@@ -87,7 +86,7 @@
                 <div class="card-body">
                 <ul class="list-unstyled latest-users">
                             <li>post
-                                    <a href="items.php?do=edit&itemid='.$it['ItemID'].'">
+                                    <a href="#">
                                         <span class="btn btn-outline-primary float-right">
                                             <i class="fa fa-edit"></i> Edit
                                         </span>

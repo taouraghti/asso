@@ -1,16 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
-
+namespace App\Http\Controllers\Admin;
 
 use App\User;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\userRequest;
+use App\Http\Requests\updateRequest;
+use Illuminate\Support\Facades\DB;
+
+
 //use Illuminate\Http\Request;
 
-class RegisterController extends Controller
+class PostController extends Controller
 {
-    public function register(UserRequest $req)
+    /*public function addMember()
+    {
+        return view('admin.addMember');
+    }
+
+    public function insertMember(UserRequest $req)
     {
         try
         {
@@ -19,12 +27,11 @@ class RegisterController extends Controller
                 'username'  => $req->username,
                 'fullname'  => $req->fullname,
                 'password'  => bcrypt($req->password),
-                'type'      => $req->type,
                 'email'     => $req->email,
-                'activate'    => 0,
+                'activate'    => 1,
                 'avatar'    => $img
             ]);
-            return "oui";
+            return view('admin.template',['msg' => "member added succesfully"]);
 
         }catch(\Exception $ex)
         {
@@ -40,17 +47,20 @@ class RegisterController extends Controller
         $photo->move($path, $img);
         return $img;
     }
-/*
-    public function editMember($id)
+*/
+    public function editPost($id)
     {
-        $user = DB::table('users')->where('id', $id)->first();
-        return view('admin.editMember', ['user' => $user]);
+        $post = DB::table('posts')->where('id', $id)->first();
+        return view('admin.editPost', ['post' => $post]);
     }
 
-    public function updateMember(UpdateRequest $req)
-    {
-
-        $img = 'avatar.png';
+    /*public function updateMember(UpdateRequest $req)
+    {*/
+        /*if(DB::table('users')->where('id', $req->userid)->value('avatar') == $req->avatar)
+            $img = $req->avatar;
+        else
+            $img = $this->saveImage($req->avatar, 'images/avatars');*/
+      /*  $img = 'avatar.png';
         $password = (empty($req->newpassword)) ? $req->oldpassword : bcrypt($req->newpassword);
         try
         {
@@ -84,7 +94,6 @@ class RegisterController extends Controller
         ->where('id', $id)
         ->delete();
         return back();
-    }
-    */
+    }*/
 
 }

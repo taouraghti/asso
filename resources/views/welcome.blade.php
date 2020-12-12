@@ -8,8 +8,8 @@
     <div class="container">
         <div class="row">
             <div class="col contact">
-                <span style="margin-right: 10px; display: inline-block;"><i class="fas fa-phone-alt" style="margin-right: 3px"></i>0644197610</span>
-                <span style="display: inline-block;"><i class="far fa-envelope" style="margin-right: 3px"></i>anas@gmail.com</span>
+                <span style="margin-right: 10px; display: inline-block;"><i class="fas fa-phone-alt" style="margin-right: 3px"></i>0606060606</span>
+                <span style="display: inline-block;"><i class="far fa-envelope" style="margin-right: 3px"></i>zineb@gmail.com</span>
             </div>
 
             <div class="col text-right res-soc">
@@ -20,10 +20,6 @@
         </div>
     </div>
 </div>
-<?php
-   if(isset($users))
-       print_r($users);
-?>
 <nav class="navbar navbar-expand-lg navbar-light" id="acceuil">
     <div class="container">
       <a class="navbar-brand" href="#">Logo</a>
@@ -41,12 +37,22 @@
         <ul class="navbar-nav navbar-right">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Connexion
+                @if(isset(session('data')->username))
+                    {{session('data')->username}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Edit profile</a>
+                    <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+                @else
+                    Connexion
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{route("register")}}">Inscription</a>
+                    <a class="dropdown-item" href="{{route("login")}}">Se connecter</a>
+                    </div>
+                @endif
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{route("register")}}">Inscription</a>
-              <a class="dropdown-item" href="{{route("login")}}">Se connecter</a>
-            </div>
           </li>
         </ul>
         </div>
@@ -201,8 +207,8 @@
                         <h3>Contactez-nous</h3>
                         <ul class="list-unstyled">
                             <li>Ensa Khouribga</li>
-                            <li>Phone: 0644197610</li>
-                            <li>Email: <a href="#" style="color:#08526d">anasidrissi@gmail.com</a></li>
+                            <li>Phone: 0606060606</li>
+                            <li>Email: <a href="#" style="color:#08526d">zineb@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>

@@ -32,8 +32,8 @@ class HomeController extends Controller
     {
         return view('users.auth.login');
     }
-    public function home($users)
+    /*public function home($users)
     {
         return view('welcome',[$users]);
-    }
+    }*/
 }
